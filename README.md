@@ -11,11 +11,11 @@ The best way I found to transform the jQuery way into a more easy way for angula
 These are the "parameters" that elsap-autoComplete accepts:
 
 #### inputname 
-Description: The name of the input 
-Required: yes
+* Description: The name of the input 
+* Required: yes
 
 ### source
-Description: It can be either a object or a function that must follow the format bellow:
+* Description: It can be either a object or a function that must follow the format bellow:
 ```
 [{
   value: 'Suggestion 1',
@@ -26,32 +26,32 @@ Description: It can be either a object or a function that must follow the format
 }]
 ```
 The function doesn't receive any parameters and must return the object in the format above.
-Required: yes
+* Required: yes
 
 ### ng-model
-Description: You can use ng-model as if it was a normal input field. 
-Required: no
+* Description: You can use ng-model as if it was a normal input field. 
+* Required: no
 
 ### isrequired
-Description: True/false value to validation purposes (it makes the input field of the directive's template required)
-Required: no
+* Description: True/false value to validation purposes (it makes the input field of the directive's template required)
+* Required: no
 
 ### inputclass
-Description: Class or classes to make the input field pretty
-Required: no 
+* Description: Class or classes to make the input field pretty
+* Required: no 
 
 ### onselect
-Description: You can use this parameter to do something when the user selects a suggestion. 
+* Description: You can use this parameter to do something when the user selects a suggestion. 
 ```
 function select(suggestion) {
   // suggestion is a object: {value: "Suggestion 1", data: 1}
 }
 ``` 
-Required: no
+* Required: no
 
 ### divstyle
-Description: Style to the div. The default is `position: relative; float: left; width: 400px;`
-Required: no
+* Description: Style to the div. The default is `position: relative; float: left; width: 400px;`
+* Required: no
 
 Add the module elsap-autoComplete to your angular module and use the auto-complete directive on a div or as a element. 
 
