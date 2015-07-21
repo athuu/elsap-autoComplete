@@ -1,0 +1,148 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>elsap-autoComplete by elsap</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>elsap-autoComplete</h1>
+        <p>Directive for angularjs to add auto complete function in input text fields</p>
+
+        <p class="view"><a href="https://github.com/elsap/elsap-autoComplete">View the Project on GitHub <small>elsap/elsap-autoComplete</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/elsap/elsap-autoComplete/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/elsap/elsap-autoComplete/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/elsap/elsap-autoComplete">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="elsap-autocomplete" class="anchor" href="#elsap-autocomplete" aria-hidden="true"><span class="octicon octicon-link"></span></a>elsap-autoComplete</h1>
+
+<p>Directive for angularjs to add auto complete function in input text fields.</p>
+
+<h2>
+<a id="dependencies" class="anchor" href="#dependencies" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dependencies</h2>
+
+<p>The dependencies for this module are jQuery and <a href="https://github.com/devbridge/jQuery-Autocomplete">devbridge/jQuery-Autocomplete</a>. To make it easy, it is possible to download the <a href="elsap-autocomplete.all.min.js">elsap-autocomplete.all.min.js</a> - the minified version of the module with the <a href="https://github.com/devbridge/jQuery-Autocomplete">jQuery-Autocomplete</a> file from <a href="https://github.com/devbridge">devbridge</a>.</p>
+
+<h2>
+<a id="how-it-works" class="anchor" href="#how-it-works" aria-hidden="true"><span class="octicon octicon-link"></span></a>How it works</h2>
+
+<p>The best way I found to transform the jQuery way into a more easy way for angular use was to make a directive that has as template a input text field and a div. The div is for the jQuery-Autocomplete use. </p>
+
+<h2>
+<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h2>
+
+<p>These are the "parameters" that elsap-autoComplete accepts:</p>
+
+<h4>
+<a id="inputname" class="anchor" href="#inputname" aria-hidden="true"><span class="octicon octicon-link"></span></a>inputname</h4>
+
+<ul>
+<li>Description: The name of the input </li>
+<li>Required: yes</li>
+</ul>
+
+<h3>
+<a id="source" class="anchor" href="#source" aria-hidden="true"><span class="octicon octicon-link"></span></a>source</h3>
+
+<ul>
+<li>Description: It can be either a object or a function that must follow the format bellow:</li>
+</ul>
+
+<pre><code>[{
+  value: 'Suggestion 1',
+  data: 1, // value to be submitted
+},{
+  value: 'Suggestion 1',
+  data: 2, // value to be submitted
+}]
+</code></pre>
+
+<p>The function doesn't receive any parameters and must return the object in the format above.</p>
+
+<ul>
+<li>Required: yes</li>
+</ul>
+
+<h3>
+<a id="ng-model" class="anchor" href="#ng-model" aria-hidden="true"><span class="octicon octicon-link"></span></a>ng-model</h3>
+
+<ul>
+<li>Description: You can use ng-model as if it was a normal input field. </li>
+<li>Required: no</li>
+</ul>
+
+<h3>
+<a id="isrequired" class="anchor" href="#isrequired" aria-hidden="true"><span class="octicon octicon-link"></span></a>isrequired</h3>
+
+<ul>
+<li>Description: True/false value to validation purposes (it makes the input field of the directive's template required)</li>
+<li>Required: no</li>
+</ul>
+
+<h3>
+<a id="inputclass" class="anchor" href="#inputclass" aria-hidden="true"><span class="octicon octicon-link"></span></a>inputclass</h3>
+
+<ul>
+<li>Description: Class or classes to make the input field pretty</li>
+<li>Required: no </li>
+</ul>
+
+<h3>
+<a id="onselect" class="anchor" href="#onselect" aria-hidden="true"><span class="octicon octicon-link"></span></a>onselect</h3>
+
+<ul>
+<li>Description: You can use this parameter to do something when the user selects a suggestion. </li>
+</ul>
+
+<pre><code>function select(suggestion) {
+  // suggestion is a object: {value: "Suggestion 1", data: 1}
+}
+</code></pre>
+
+<ul>
+<li>Required: no</li>
+</ul>
+
+<h3>
+<a id="divstyle" class="anchor" href="#divstyle" aria-hidden="true"><span class="octicon octicon-link"></span></a>divstyle</h3>
+
+<ul>
+<li>Description: Style to the div. The default is <code>position: relative; float: left; width: 400px;</code>
+</li>
+<li>Required: no</li>
+</ul>
+
+<p>Add the module elsap-autoComplete to your angular module and use the auto-complete directive on a div or as a element. </p>
+
+<pre><code>&lt;div auto-complete inputname="Example" source="ObjSource" ng-model="Example" 
+isrequired="true" inputclass="form-control col-md-10" onselect="selectFunc"&gt;&lt;/div&gt;
+</code></pre>
+
+<pre><code>&lt;auto-complete inputname="Example" source="ObjSource" ng-model="Example" 
+isrequired="true" inputclass="form-control col-md-10" onselect="selectFunc"&gt;&lt;/auto-complete&gt;
+</code></pre>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/elsap">elsap</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
