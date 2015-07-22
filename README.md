@@ -14,7 +14,7 @@ These are the "parameters" that elsap-autoComplete accepts:
 * Description: The name of the input 
 * Required: yes
 
-### source
+#### source
 * Description: It can be either a object or a function that must follow the format bellow:
 ```
 [{
@@ -28,19 +28,19 @@ These are the "parameters" that elsap-autoComplete accepts:
 The function doesn't receive any parameters and must return the object in the format above.
 * Required: yes
 
-### ng-model
+#### ng-model
 * Description: You can use ng-model as if it was a normal input field. 
 * Required: no
 
-### isrequired
+#### isrequired
 * Description: True/false value to validation purposes (it makes the input field of the directive's template required)
 * Required: no
 
-### inputclass
+#### inputclass
 * Description: Class or classes to make the input field pretty
 * Required: no 
 
-### onselect
+#### onselect
 * Description: You can use this parameter to do something when the user selects a suggestion. 
 ```
 function select(suggestion) {
@@ -49,7 +49,7 @@ function select(suggestion) {
 ``` 
 * Required: no
 
-### divstyle
+#### divstyle
 * Description: Style to the div. The default is `position: relative; float: left; width: 400px;`
 * Required: no
 
