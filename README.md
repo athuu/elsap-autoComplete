@@ -5,7 +5,7 @@ Directive for angularjs to add auto complete function in input text fields.
 The dependencies for this module are jQuery and [devbridge/jQuery-Autocomplete](https://github.com/devbridge/jQuery-Autocomplete). To make it easy, it is possible to download the [elsap-autocomplete.all.min.js](elsap-autocomplete.all.min.js) - the minified version of the module with the [jQuery-Autocomplete](https://github.com/devbridge/jQuery-Autocomplete) file from [devbridge](https://github.com/devbridge).
 
 ## How it works
-The best way I found to transform the jQuery way into a more easy way for angular use was to make a directive that has as template a input text field and a div. The div is for the jQuery-Autocomplete use. 
+The best way I found to transform the jQuery way into a more easy way for angular use was to make a directive that has as template an input text field and a div. The div is for the jQuery-Autocomplete use. 
 
 ## Parameters
 These are the "parameters" that elsap-autoComplete accepts:
