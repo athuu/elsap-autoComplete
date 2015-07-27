@@ -4,7 +4,7 @@ autoComplete.directive('autoComplete', function() {
     return {
         restrict: 'AE',
         require: '?ngModel',
-        template: '<input type="text" name="{{inputname}}" class="{{inputclass}}" ng-model="inputField" style="float: left;" ng-required="{{isrequired}}"/> ' + 
+        template: '<input type="text" name="{{inputname}}" class="{{inputclass}}" ng-model="inputField" style="float: left;" ng-required="{{isrequired}}" placeholder="{{placeholder}}"/> ' + 
                   '<div style="{{(divstyle) ? divstyle : \'position: relative; float: left; width: 400px;\'}}"></div>',
         scope: {
             inputname: '@',
@@ -12,8 +12,10 @@ autoComplete.directive('autoComplete', function() {
             isrequired: '@',
             inputclass: '@',
             divstyle: '@',
+            placeholder: '@',
             onselect: '=',
             ngModel: '=',
+            reset: '='
         },
         controller: function($scope) {
         },
@@ -24,6 +26,13 @@ autoComplete.directive('autoComplete', function() {
 
             if(typeof scope.source == 'object') {
                 scope.lookup = scope.source;
+            }
+
+            scope.reset = function() {
+                if(attr.ngModel) {
+                    ngModel.$setViewValue('');
+                }
+                elem.find('input').val('');
             }
 
             elem.find('input').autocomplete({
