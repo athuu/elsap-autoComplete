@@ -4,8 +4,8 @@ autoComplete.directive('autoComplete', function() {
     return {
         restrict: 'AE',
         require: '?ngModel',
-        template: '<input type="text" name="{{inputname}}" class="{{inputclass}}" ng-model="inputField" style="float: left;" ng-required="{{isrequired}}" placeholder="{{placeholder}}"/> ' + 
-                  '<div style="{{(divstyle) ? divstyle : \'position: relative; float: left; width: 400px;\'}}"></div>',
+        template: '<input type="text" name="{{inputname}}" class="{{inputclass}}" ng-model="inputField" style="float: left;" ng-required="{{isrequired}}" placeholder="{{placeholder}}" ng-blur="onBlur()"/> ' + 
+                  '<div style="{{(divstyle) ? divstyle : \'position: relative; float: left; width: 400px;\'}}" ng-click="divClicked = true"></div>',
         scope: {
             inputname: '@',
             source: '=',
@@ -15,7 +15,8 @@ autoComplete.directive('autoComplete', function() {
             placeholder: '@',
             onselect: '=',
             ngModel: '=',
-            reset: '='
+            reset: '=',
+            anyvalue: '@'
         },
         controller: function($scope) {
         },
@@ -26,6 +27,18 @@ autoComplete.directive('autoComplete', function() {
 
             if(typeof scope.source == 'object') {
                 scope.lookup = scope.source;
+            }
+
+            scope.divClicked = false;
+
+            scope.onBlur = function() {
+                if(!scope.anyvalue && !scope.divClicked) {
+                    scope.inputField = '';
+                    if(attr.ngModel) {
+                        ngModel.$setViewValue('');
+                    }
+                }
+                scope.divClicked = false;
             }
 
             scope.reset = function() {
@@ -42,6 +55,9 @@ autoComplete.directive('autoComplete', function() {
                     if(attr.ngModel) {
                         ngModel.$setViewValue(suggestion.data);
                     }
+
+                    scope.inputField = suggestion.value;
+                    scope.divClicked = false;
 
                     if(typeof scope.onselect == 'function') {
                         scope.onselect(suggestion);
