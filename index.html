@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/github-light.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -34,6 +35,17 @@
 <p>Directive for angularjs to add auto complete function in input text fields.</p>
 
 <h2>
+<a id="demo" class="anchor" href="#demo" aria-hidden="true"><span class="octicon octicon-link"></span></a>Demo</h2>
+<p>You can see the directive working below</p>
+<div ng-app="demoApp" ng-controller="demoCtrl">
+  <div class="form-group">
+    <label>Type a programming language</label>
+    <div auto-complete inputname="demo" source="ObjSource" ng-model="demo" 
+    isrequired="true" inputclass="form-control col-md-10" onselect="selectFunc"></div>
+  </div>
+</div>
+<br>
+<h2>
 <a id="dependencies" class="anchor" href="#dependencies" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dependencies</h2>
 
 <p>The dependencies for this module are jQuery and <a href="https://github.com/devbridge/jQuery-Autocomplete">devbridge/jQuery-Autocomplete</a>. To make it easy, it is possible to download the <a href="elsap-autocomplete.all.min.js">elsap-autocomplete.all.min.js</a> - the minified version of the module with the <a href="https://github.com/devbridge/jQuery-Autocomplete">jQuery-Autocomplete</a> file from <a href="https://github.com/devbridge">devbridge</a>.</p>
@@ -41,7 +53,7 @@
 <h2>
 <a id="how-it-works" class="anchor" href="#how-it-works" aria-hidden="true"><span class="octicon octicon-link"></span></a>How it works</h2>
 
-<p>The best way I found to transform the jQuery way into a more easy way for angular use was to make a directive that has as template an input text field and a div. The div is for the jQuery-Autocomplete use. </p>
+<p>The best way I found to transform the jQuery way into a more easy way for angular use was to make a directive that has as template an input text field and a div. The div is for the jQuery-Autocomplete use. To stylize the result div, use the class <code>autocomplete-suggestions</code></p>
 
 <h2>
 <a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h2>
@@ -143,6 +155,10 @@ isrequired="true" inputclass="form-control col-md-10" onselect="selectFunc"&gt;&
       </footer>
     </div>
     <script src="javascripts/scale.fix.js"></script>
+    <script src="javascripts/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular.min.js"></script>
+    <script src="javascripts/elsap-autocomplete.all.min.js"></script>
+    <script src="javascripts/app.js"></script>
     
   </body>
 </html>
